@@ -6,6 +6,7 @@ git:
 cache:
   directories:
   - node_modules
+  - themes 
 
 before_install:
 - git submodule update --init --recursive
@@ -18,7 +19,6 @@ install:
 - npm install 
 - bower install
 - grunt buildProd
-
 
 before_script:
 - cd ../..
