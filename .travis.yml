@@ -15,8 +15,7 @@ before_script:
 
 
 script:
-- git submodule init
-- git submodule update
+- git submodule update --init --recursive
 - gulp build
 
 after_script:
