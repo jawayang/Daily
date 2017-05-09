@@ -11,4 +11,14 @@ tags: hexo, travis
 
 有空再來整理
 
+## 安裝佈景主題
 
+- 參考文章：http://devtian.me/2015/03/17/blog-sync-solution/
+
+1. 先 fork 一份，修改的時候才能 commit 到自己的 respostory
+
+例如：安裝 tranquilpeak 
+
+```
+git submodule add git@github.com:jawayang/hexo-theme-tranquilpeak.git themes/tranquilpeak
+```
