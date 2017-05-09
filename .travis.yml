@@ -1,38 +1,31 @@
-
 language: node_js
 node_js: stable
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 install:
-  - npm install
-
+- npm install
 before_script:
-  - npm install -g gulp
-
+- npm install -g gulp
 script:
-  - gulp build
-
+- gulp build
 after_script:
-  - cd public
-  - git init
-  - git config user.name "James Yang"
-  - git config user.email "jawa.yang@gmail.com"
-  - git add .
-  - git commit -m "Update Daily"
-  - git push --force --quiet "https://jawayang:${GH_TOKEN}@${GIT_PAGE_REF}" develop:master  
-
+- cd public
+- git init
+- git config user.name "James Yang"
+- git config user.email "jawa.yang@gmail.com"
+- git add .
+- git commit -m "Update Daily"
+- git push --force --quiet "https://jawayang:${GH_TOKEN}@${GIT_PAGE_REF}" develop:master
 branches:
   only:
-    - develop
+  - develop
 env:
- global:
-   - GIT_PAGE_REF: github.com/jawayang/Daily.git
-
+  global:
+  - GIT_PAGE_REF: github.com/jawayang/Daily.git
+  - secure: FQQJoPVWpEVK0AyU/uR1/YqWVWXbl77pDmZ1mxnOZXbL95Xc2niPZPniG4JmFeLyFXDpoUff2a/K/klDeRlgphAjaic7LjRSGzj2u9FZuNKquil7DVplUMV1CrmDXxDPefuMijFA8wDzG1RMekhRSNNGTj2LzyJdAysRyEk1sik2wW9wWUjaFQ+mUnbk35LsyfepLBlNg7qZ+idvyp8zZgw0tl0w/y7hTmdJA4xEJnwdSjssC/vetE50Q3yywjKklD6lfur3Dg0Njvm0UVUxWQ4KZjBCKCCrOGJxCp2X6WP2Nz+SuuDjZuV8tPZI7DzyWN/KjtMRZ9CNlX2dfZ5X/JxDutPSEbj10K2khu3m75k89hle8QWBMTH0skHic7elNd4AcYMU4nPl/wGb3P7OesWCR9T0lOlUZ0RX6q820KDYv4y4N435QfRe6TtpOSGHHbEPaOW9Ma7dCmGs5XQCSHlO92Mnu2u+99AZanaqTyqD+iNA4XHBpW9FzQXfJkJh7G7KVJeQquyZTOzIlVTcqEJ92kdliPdrBaLbUAFtxYol87kHxokQm2PG2zxI2A1HhujZdYrcS7O0yIFEOmD6CWhLAmNAYV9PEjQip9nkl+qQBJwSZhaQ/O/dA6ozGIge1Sf0hzBOTSmCjUV7fa3/a00S+B4RGW8msIscw/MV21Q=
 notifications:
   email:
-    - jawa.yang@gmail.com
+  - jawa.yang@gmail.com
   on_success: change
   on_failure: always
