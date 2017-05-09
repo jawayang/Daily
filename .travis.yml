@@ -22,7 +22,7 @@ after_script:
   - git config user.email "jawa.yang@gmail.com"
   - git add .
   - git commit -m "Update Daily"
-  - git push --force --quiet "https://$GH_TOKEN@$GIT_PAGE_REF" master:master  
+  - git push --force --quiet "https://${GH_TOKEN}@${GIT_PAGE_REF}" develop:master  
 
 branches:
   only:
