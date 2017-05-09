@@ -1,5 +1,8 @@
 language: node_js
 node_js: stable
+git:
+    submodules: false
+    
 cache:
   directories:
   - node_modules
@@ -9,6 +12,7 @@ install:
 
 before_script:
 - npm install -g gulp
+
 
 script:
 - git submodule init

@@ -22,3 +22,22 @@ tags: hexo, travis
 ```
 git submodule add git@github.com:jawayang/hexo-theme-tranquilpeak.git themes/tranquilpeak
 ```
+
+2. 處理 submodules 的時候會遇到權限問題
+```
+Submodule 'themes/tranquilpeak' (git@github.com:jawayang/hexo-theme-tranquilpeak.git) registered for path 'themes/tranquilpeak'
+Cloning into 'themes/tranquilpeak'...
+Warning: Permanently added the RSA host key for IP address '192.30.253.113' to the list of known hosts.
+Permission denied (publickey).
+fatal: Could not read from remote repository.
+```
+> 參考：http://stackoverflow.com/questions/15674064/github-submodule-access-rights-travis-ci
+
+改用 修改 .gitmodules 的設定
+把 url 從 ssh 改成 https 的方式
+並且加上 
+```
+git:
+    submodules: false
+```
+用手動的方式執行
