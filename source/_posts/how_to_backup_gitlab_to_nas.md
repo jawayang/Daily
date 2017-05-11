@@ -71,6 +71,39 @@ rsync -av /var/gitlabBackup/ username@10.1.1.31::IT\ Resources/gitlabBackup
 
 - [如何在區域網路內存取 Synology NAS 上的檔案 (NFS)](https://www.synology.com/zh-tw/knowledgebase/DSM/tutorial/File_Sharing/How_to_access_files_on_Synology_NAS_within_the_local_network_NFS)
 
+NFS client 
+---
+執行 mount
+```
+sudo mount 10.1.1.31:/volume1/NetBackup /mnt/
+```
+
+發生錯誤
+```
+mount: wrong fs type, bad option, bad superblock on 10.1.1.31:/volume1/NetBackup,
+       missing codepage or helper program, or other error
+       (for several filesystems (e.g. nfs, cifs) you might
+       need a /sbin/mount.<type> helper program)
+       In some cases useful info is found in syslog - try
+       dmesg | tail  or so
+```
+
+原來是需要安裝 nfs 的套件
+``` sh
+sudo apt-get install nfs-common
+```
+
+然後就可以掛載
+```
+sudo mount 10.1.1.31:/volume1/NetBackup gitlabBackup/      
+```
+
+掛載前還需要先建立資料夾
+```
+mkdir gitlabBackup
+```
+
+
 結論
 ---
 綜合以上的文獻資料，具體的作法：
