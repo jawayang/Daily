@@ -1,6 +1,8 @@
 ---
 title: 折騰人的 Hexo 自動發佈設定
-tags: hexo, travis
+tags: 
+- hexo 
+- travis
 ---
 
 
