@@ -8,7 +8,7 @@ tags:
 修正 Sketch-Base64-PNG-Export 的錯誤
 ===
 
-{% asset_img 'github.png' %}
+![img](github.png)
 
 
 前陣子收到一個很久以前寫的`sketch`外掛
