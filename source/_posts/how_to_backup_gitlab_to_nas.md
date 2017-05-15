@@ -1,13 +1,12 @@
 ---
-title: 自動備份 gitlab 資料
+title: 自動備份 gitlab 資料
 tags: 
 - gitlab 
 - backup
 ---
 
-# 自動備份 gitlab 檔案
 
-備份哪些資料？
+備份哪些資料？
 ---
 gitlab 上有哪些重要的資料是應該備份的呢？  
 
@@ -18,7 +17,7 @@ gitlab 上有哪些重要的資料是應該備份的呢？
 ---
 ``` sh
 # 備份資料會放在 /var/opt/gitlab/backups  
-sudo sh -c 'umask 0077; tar -cf $(date "+/var/opt/gitlab/backups/gitlabconfig-%s.tar") -C / etc/gitlab'
+sudo sh -c 'umask 0077; tar -cf $(date "+/var/opt/gitlab/backups/gitlabconfig-%s.tar") -C / etc/gitlab'
 ```
 
 備份 gitlab 專案
@@ -31,14 +30,14 @@ sudo sh -c 'umask 0077; tar -cf $(date "+/var/opt/gitlab/backups/gitlabconfig-%
 
 切換身份並設定排程
 --- 
-讓 linux 可以自動定時執行 script
+讓 linux 可以自動定時執行 script
 - 參考資料 : [利用 crontab 來做 Linux 固定排程](https://code.kpman.cc/2015/02/11/%E5%88%A9%E7%94%A8-crontab-%E4%BE%86%E5%81%9A-Linux-%E5%9B%BA%E5%AE%9A%E6%8E%92%E7%A8%8B/)
 
 ``` sh
-# 切換身份執行 
+# 切換身份執行 
 sudo crontab -e -u root
 # 設定定時工作
-15 04 * * 2-6  umask 0077; tar -cf $(date "+/var/opt/gitlab/backups/gitlabconfig-%s.tar") -C / etc/gitlab  
+15 04 * * 2-6  umask 0077; tar -cf $(date "+/var/opt/gitlab/backups/gitlabconfig-%s.tar") -C / etc/gitlab  
 ```
 
 同步資料夾到 NAS 中
@@ -61,14 +60,14 @@ https://joshdick.net/2014/04/12/configuring_ssh_and_scp_sftp_on_dsm_5.0_for_syno
 
 ~~如何設定 rsync~~
 ---
-<!--```
+``` sh
 rsync -av /var/gitlabBackup/ username@10.1.1.31::IT\ Resources/gitlabBackup
-```-->
+```
 - ~~[rsync 的詳細說明](http://newsletter.ascc.sinica.edu.tw/news/read_news.php?nid=1742)~~
 
 > 上面的設定都免了直接設定 NFS 就好了，直接備份到 NFS 上
 
-NFS 設定方式  
+NFS 設定方式  
 ---
 
 - [如何在區域網路內存取 Synology NAS 上的檔案 (NFS)](https://www.synology.com/zh-tw/knowledgebase/DSM/tutorial/File_Sharing/How_to_access_files_on_Synology_NAS_within_the_local_network_NFS)
@@ -106,10 +105,10 @@ mkdir gitlabBackup
 ```
 
 
-結論
+結論
 ---
 綜合以上的文獻資料，具體的作法：
-1. 先將 NAS 資料夾掛接到 Gitlab Server
+1. 先將 NAS 資料夾掛接到 Gitlab Server
 2. 透過 crontab 設定工作排程
 3. 完成
 
